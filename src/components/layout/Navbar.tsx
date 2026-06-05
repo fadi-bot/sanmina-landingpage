@@ -9,11 +9,29 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false); // Navbar ko hide/show karne ki state
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // 1. Check karega ke 20px se neechay aye hain ya nahi (Color aur blur ke liye)
+      setScrolled(currentScrollY > 20);
+
+      // 2. Hide/Show logic (Scroll Direction check karne ke liye)
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Agar pehle se zyada neechay aye hain (Scroll Down) aur top pe nahi hain -> Hide kar do
+        setHidden(true);
+      } else {
+        // Agar upar ki taraf wapis gaye (Scroll Up) -> Show kar do
+        setHidden(false);
+      }
+
+      lastScrollY = currentScrollY; // Current scroll ko save kar lo agli dafa match karne ke liye
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,10 +47,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      // Yahan humne transform aur -translate-y-full lagaya hai hide karne ke liye
+      className={`fixed top-0 w-full z-50 transition-all duration-300 transform ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      } ${
         scrolled 
           ? "glass shadow-lg py-3" 
-          : "bg-sky-500/20 backdrop-blur-sm py-5" // Yahan light blue tint add kiya hai
+          : "bg-sky-500/20 backdrop-blur-sm py-5" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
