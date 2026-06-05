@@ -9,7 +9,7 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false); // Navbar ko hide/show karne ki state
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -17,19 +17,15 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // 1. Check karega ke 20px se neechay aye hain ya nahi (Color aur blur ke liye)
       setScrolled(currentScrollY > 20);
 
-      // 2. Hide/Show logic (Scroll Direction check karne ke liye)
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Agar pehle se zyada neechay aye hain (Scroll Down) aur top pe nahi hain -> Hide kar do
         setHidden(true);
       } else {
-        // Agar upar ki taraf wapis gaye (Scroll Up) -> Show kar do
         setHidden(false);
       }
 
-      lastScrollY = currentScrollY; // Current scroll ko save kar lo agli dafa match karne ke liye
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -47,13 +43,11 @@ const Navbar = () => {
 
   return (
     <nav
-      // Yahan humne transform aur -translate-y-full lagaya hai hide karne ke liye
-      className={`fixed top-0 w-full z-50 transition-all duration-300 transform ${
+    
+      className={`fixed top-0 w-full z-50 transition-all duration-300 transform bg-sky-600 ${
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${
-        scrolled 
-          ? "glass shadow-lg py-3" 
-          : "bg-sky-500/20 backdrop-blur-sm py-5" 
+        scrolled ? "shadow-lg py-3" : "py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +55,7 @@ const Navbar = () => {
           
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-60 h-20 shrink-0">
+            <div className="relative w-30 h-10 shrink-0">
               <Image
                 src="/logo.png" 
                 alt="Sanmina Business Solutions"
@@ -107,7 +101,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/5"
+            className="md:hidden bg-sky-700 border-t border-white/5"
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
