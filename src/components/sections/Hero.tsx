@@ -5,7 +5,8 @@ import { ArrowRight, Shield, Zap, Users } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    // Yahan pt-20 ko change kar ke pt-40 kar diya hai taake overlap na ho
+    <section className="relative min-h-screen flex items-center pt-40 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-electric-blue/20 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan/10 rounded-full blur-[120px]" />
@@ -17,15 +18,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 px-3 py-1 rounded-full glass border-white/10 text-cyan text-xs font-bold tracking-wider uppercase mb-6"
-            >
-              <Zap className="w-3 h-3" />
-              <span>Next-Gen IT Managed Services</span>
-            </motion.div>
+            
             
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
               Reliable IT Support & <br />

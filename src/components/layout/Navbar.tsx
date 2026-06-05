@@ -30,24 +30,25 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass py-3" : "bg-transparent py-5"
+        scrolled 
+          ? "glass shadow-lg py-3" 
+          : "bg-sky-500/20 backdrop-blur-sm py-5" // Yahan light blue tint add kiya hai
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          {/* Logo Section Updated and Fixed */}
+          {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 flex-shrink-0">
+            <div className="relative w-60 h-20 shrink-0">
               <Image
                 src="/logo.png" 
                 alt="Sanmina Business Solutions"
                 fill
-                className="object-contain"
+                className="object-contain object-left scale-125" 
                 priority 
               />
             </div>
-            
           </Link>
 
           {/* Desktop Nav */}
@@ -56,7 +57,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-light-gray hover:text-cyan transition-colors"
+                className="text-sm font-medium text-white hover:text-cyan transition-colors"
               >
                 {link.name}
               </Link>
@@ -93,7 +94,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-lg font-medium text-light-gray hover:text-cyan"
+                  className="block text-lg font-medium text-white hover:text-cyan"
                 >
                   {link.name}
                 </Link>
