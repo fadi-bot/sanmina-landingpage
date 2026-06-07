@@ -35,19 +35,16 @@ const Navbar = () => {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "About Us", href: "/about-us" },
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "Blog", href: "/blog" },
-    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
     <nav
     
-      className={`fixed top-0 w-full z-50 transition-all duration-300 transform bg-sky-600 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${
-        scrolled ? "shadow-lg py-3" : "py-5"
+        scrolled ? "backdrop-blur-md bg-navy/80 shadow-lg py-3" : "py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

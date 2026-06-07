@@ -1,52 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Headphones, 
-  Moon, 
-  Cloud, 
-  UserPlus, 
-  Monitor, 
-  ShieldCheck 
+import {
+  Headphones,
+  Cloud,
+  Moon,
+  ShieldCheck,
+  Users,
+  Database
 } from "lucide-react";
 
 const services = [
   {
-    title: "Managed Help Desk",
-    description: "24/7 ticket support for your team. Real people, real solutions, real fast.",
-    icon: Headphones,
-    color: "text-blue-400",
+    title: "24/7 Managed Help Desk",
+    description: "Comprehensive remote desktop support keeping your operations running smoothly around the clock. We handle troubleshooting, system glitches, and daily end-user issues with rapid response times.",
+    icon: Headphones
   },
   {
-    title: "After-Hour MSP",
-    description: "Night shift coverage ensuring your systems stay healthy while you sleep.",
-    icon: Moon,
-    color: "text-purple-400",
+    title: "Microsoft 365 Setup & Support",
+    description: "End-to-end administration and optimization of your cloud productivity ecosystem to ensure secure, seamless team collaboration.",
+    icon: Cloud
   },
   {
-    title: "Microsoft 365",
-    description: "Expert setup, migration, and management of your productivity suite.",
-    icon: Cloud,
-    color: "text-orange-400",
+    title: "After-Hours U.S. MSP Support",
+    description: "White-label night-shift and weekend coverage designed specifically for U.S.-based Managed Service Providers looking to scale their capacity cost-effectively.",
+    icon: Moon
   },
   {
-    title: "Team Extension",
-    description: "Scalable tech teams that plug directly into your existing workflow.",
-    icon: UserPlus,
-    color: "text-cyan",
+    title: "Proactive Patch Management",
+    description: "Regular, non-disruptive software maintenance and patch automation to keep systems secure and up to date.",
+    icon: ShieldCheck
   },
   {
-    title: "Remote IT Support",
-    description: "Instant VPN setup and expert troubleshooting from anywhere in the world.",
-    icon: Monitor,
-    color: "text-yellow-400",
+    title: "Scalable Team Extension",
+    description: "Build dedicated outsourced technical teams in Pakistan to expand capability and reduce operational overhead.",
+    icon: Users
   },
   {
-    title: "Patch Management",
-    description: "Scheduled updates and security patches to keep your infrastructure secure.",
-    icon: ShieldCheck,
-    color: "text-green-400",
-  },
+    title: "CRM & Back-Office Support",
+    description: "Specialized CRM administration to improve automation, data pipelines, and sales efficiency.",
+    icon: Database
+  }
 ];
 
 const Services = () => {
@@ -60,7 +54,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-4xl lg:text-5xl font-bold mb-4"
           >
-            Comprehensive <span className="text-gradient">IT Solutions</span>
+            Our <span className="text-gradient">Services</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -82,9 +76,9 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-8 rounded-3xl group cursor-pointer"
+              className="glass-card p-8 rounded-3xl group hover:border-cyan/30 transition-all duration-300"
             >
-              <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${service.color}`}>
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 text-cyan">
                 <service.icon className="w-7 h-7" />
               </div>
               <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan transition-colors">
@@ -93,11 +87,16 @@ const Services = () => {
               <p className="text-light-gray leading-relaxed mb-6">
                 {service.description}
               </p>
-              <div className="flex items-center text-sm font-bold text-cyan opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>Learn More</span>
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="9 5l7 7-7 7" />
-                </svg>
+              <div className="border-t border-white/10 pt-4">
+                {/* <h4 className="text-sm font-semibold text-cyan mb-3">Key Deliverables:</h4> */}
+                <ul className="space-y-2">
+                  {/* {service.deliverables.map((deliverable, idx) => (
+                    <li key={idx} className="text-sm text-light-gray flex items-start">
+                      <span className="text-cyan mr-2">•</span>
+                      {deliverable}
+                    </li>
+                  ))} */}
+                </ul>
               </div>
             </motion.div>
           ))}
