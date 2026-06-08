@@ -32,15 +32,21 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  const openConsultationModal = () => {
+    window.dispatchEvent(new CustomEvent('openModal'));
+    setIsOpen(false); 
+  };
+
   const navLinks = [
-    { name: "Services", href: "#services" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
     { name: "About Us", href: "/about-us" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   return (
     <nav
-    
       className={`fixed top-0 w-full z-50 transition-all duration-300 transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${
@@ -50,7 +56,6 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-30 h-10 shrink-0">
               <Image
@@ -63,7 +68,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -74,12 +78,15 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <button className="px-5 py-2 rounded-full bg-electric-blue hover:bg-cyan text-white text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(0,102,204,0.4)]">
+           
+            <button 
+              onClick={openConsultationModal}
+              className="px-5 py-2 rounded-full bg-electric-blue hover:bg-cyan text-white text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(0,102,204,0.4)]"
+            >
               Free Consultation
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -91,7 +98,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -111,7 +117,11 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <button className="w-full py-3 rounded-xl bg-electric-blue text-white font-semibold">
+
+              <button 
+                onClick={openConsultationModal}
+                className="w-full py-3 rounded-xl bg-electric-blue text-white font-semibold"
+              >
                 Free Consultation
               </button>
             </div>

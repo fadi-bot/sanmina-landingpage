@@ -38,8 +38,8 @@ const Welcome = () => {
             </div>
 
             {/* Main image placeholder */}
-            <div className="relative bg-gradient-to-br from-electric-blue/20 to-cyan/20 rounded-3xl p-8 shadow-xl border border-white/10">
-              <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden relative">
+            <div className="relative bg-linear-to-br from-electric-blue/20 to-cyan/20 rounded-3xl p-8 shadow-xl border border-white/10">
+              <div className="aspect-4/3 bg-white/5 rounded-2xl overflow-hidden relative">
                 <Image
                   src="/welcome-image.jpg"
                   alt="Professional at work"
@@ -83,7 +83,7 @@ const Welcome = () => {
                   "Work-Life-Balance"
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 rounded-full bg-cyan flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-cyan flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
                     <span className="font-medium text-white">{feature}</span>
@@ -97,7 +97,7 @@ const Welcome = () => {
                   "Ethical Values"
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 rounded-full bg-cyan flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-cyan flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
                     <span className="font-medium text-white">{feature}</span>
