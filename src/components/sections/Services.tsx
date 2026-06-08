@@ -87,17 +87,7 @@ const Services = () => {
               <p className="text-light-gray leading-relaxed mb-6">
                 {service.description}
               </p>
-              <div className="border-t border-white/10 pt-4">
-                {/* <h4 className="text-sm font-semibold text-cyan mb-3">Key Deliverables:</h4> */}
-                <ul className="space-y-2">
-                  {/* {service.deliverables.map((deliverable, idx) => (
-                    <li key={idx} className="text-sm text-light-gray flex items-start">
-                      <span className="text-cyan mr-2">•</span>
-                      {deliverable}
-                    </li>
-                  ))} */}
-                </ul>
-              </div>
+              
             </motion.div>
           ))}
         </div>

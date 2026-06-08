@@ -136,10 +136,6 @@ const ServicesPage = () => {
                   {service.description}
                 </p>
 
-                <div className="mt-8 flex items-center text-sm font-semibold text-gray-500 group-hover:text-cyan transition-colors duration-300 cursor-pointer w-max">
-                  <span>Explore capabilities</span>
-                  <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -215,24 +211,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* Call to Action Section */}
-      <div className="py-24 relative overflow-hidden border-t border-white/10">
-        <div className="absolute inset-0 bg-linear-to-b from-transparent to-[#0a1128]/80 -z-10" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to scale your tech capabilities?
-          </h2>
-          <p className="text-gray-400 text-lg mb-10">
-            Let's discuss how our managed services can be tailored to meet your unique business challenges and drive growth.
-          </p>
-          <button 
-            onClick={openConsultationModal}
-            className="px-10 py-5 rounded-xl bg-electric-blue hover:bg-cyan text-white font-bold text-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,102,204,0.4)] hover:shadow-[0_0_30px_rgba(0,229,255,0.6)]"
-          >
-            Talk to an Expert
-          </button>
-        </div>
-      </div>
+      
 
       <Footer />
     </main>

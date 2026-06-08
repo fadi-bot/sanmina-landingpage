@@ -32,12 +32,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-  const openConsultationModal = () => {
-    window.dispatchEvent(new CustomEvent('openModal'));
-    setIsOpen(false); 
-  };
-
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -78,13 +72,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-           
-            <button 
-              onClick={openConsultationModal}
-              className="px-5 py-2 rounded-full bg-electric-blue hover:bg-cyan text-white text-sm font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(0,102,204,0.4)]"
-            >
-              Free Consultation
-            </button>
           </div>
 
           <div className="md:hidden">
@@ -117,13 +104,6 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-
-              <button 
-                onClick={openConsultationModal}
-                className="w-full py-3 rounded-xl bg-electric-blue text-white font-semibold"
-              >
-                Free Consultation
-              </button>
             </div>
           </motion.div>
         )}
